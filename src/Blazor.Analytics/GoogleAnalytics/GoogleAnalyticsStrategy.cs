@@ -56,12 +56,19 @@ namespace Blazor.Analytics.GoogleAnalytics
             string eventLabel = null,
             int? eventValue = null)
         {
-            await TrackEvent(eventName, new
+            if (_trackingId.StartsWith("GTM"))
             {
-                event_category = eventCategory, 
-                event_label = eventLabel, 
-                value = eventValue
-            });
+                await TrackEventGTM(eventName, eventCategory, eventLabel);
+            }
+            else
+            {
+                await TrackEvent(eventName, new
+                {
+                    event_category = eventCategory,
+                    event_label = eventLabel,
+                    value = eventValue
+                });
+            }
         }
 
         public Task TrackEvent(string eventName, int eventValue, string eventCategory = null, string eventLabel = null)
@@ -77,8 +84,19 @@ namespace Blazor.Analytics.GoogleAnalytics
             }
 
             await _jsRuntime.InvokeAsync<string>(
-                GoogleAnalyticsInterop.TrackEvent,
+                GoogleAnalyticsInterop.TrackEvent, _trackingId,
                 eventName, eventData);
+        }
+
+        public async Task TrackEventGTM(string eventName, string eventCategory, string eventLabel)
+        {
+            if (!_isInitialized)
+            {
+                await Initialize(_trackingId);
+            }
+
+            await _jsRuntime.InvokeAsync<string>(
+                GoogleAnalyticsInterop.TrackEventGTM, _trackingId, eventName, eventCategory, eventLabel);
         }
     }
 }

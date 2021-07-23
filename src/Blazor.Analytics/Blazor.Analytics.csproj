@@ -14,17 +14,19 @@
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <Authors>isc30</Authors>
-        <Company>CodeIsc</Company>
-        <PackageId>Blazor-Analytics</PackageId>
-        <Product>Blazor Analytics</Product>
+        <Authors>isc30, GTM by pmonte</Authors>
+        <Company></Company>
+        <PackageId>Blazor-Analytics-GTM</PackageId>
+        <Product>Blazor Analytics GTM</Product>
         <Title>Blazor Analytics</Title>
-        <Description>Blazor extensions for Analytics. Supported platforms: Google Analytics, GTAG, ...</Description>
-        <PackageTags>blazor google analytics gtag extensions razor components</PackageTags>
-        <RepositoryUrl>https://github.com/isc30/blazor-analytics</RepositoryUrl>
+        <Description>A fork of Blazor-Analytics to add GTM support.
+Blazor extensions for Analytics. Supported platforms: Google Analytics, GTAG and Google Tag Manager</Description>
+        <PackageTags></PackageTags>
+        <RepositoryUrl></RepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryType>git</RepositoryType>
+        <RepositoryType></RepositoryType>
         <Copyright>Ivan Sanz Carasa (isc30)</Copyright>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>

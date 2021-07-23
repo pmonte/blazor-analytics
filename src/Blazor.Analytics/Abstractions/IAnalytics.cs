@@ -11,5 +11,6 @@ namespace Blazor.Analytics
         Task TrackEvent(string eventName, string eventCategory = null, string eventLabel = null, int? eventValue = null);
         Task TrackEvent(string eventName, int eventValue, string eventCategory = null, string eventLabel = null);
         Task TrackEvent(string eventName, object eventData);
+        Task TrackEventGTM(string eventName, string eventCategory, string eventLabel);
     }
 }
